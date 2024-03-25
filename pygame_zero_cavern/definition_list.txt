@@ -1,0 +1,140 @@
+Variable: pgzero_version
+Variable: WIDTH
+Variable: HEIGHT
+Variable: TITLE
+Variable: NUM_ROWS
+Variable: NUM_COLUMNS
+Variable: LEVEL_X_OFFSET
+Variable: GRID_BLOCK_SIZE
+Variable: ANCHOR_CENTRE
+Variable: ANCHOR_CENTRE_BOTTOM
+Variable: LEVELS
+
+Function: block(x, y)
+    Variable: grid_x
+    Variable: grid_y
+    Variable: row
+
+Function: sign(x)
+
+Class: CollideActor
+    Function: __init__(self, pos, anchor)
+    Function: move(self, dx, dy, speed)
+
+Class: Orb
+    Variable: MAX_TIMER
+    Function: __init__(self, pos, dir_x)
+    Function: hit_test(self, bolt)
+        Variable: collided
+    Function: update(self)
+
+Class: Bolt
+    Variable: SPEED
+    Function: __init__(self, pos, dir_x)
+    Function: update(self)
+        Variable: direction_idx
+        Variable: anim_frame
+
+Class: Pop
+    Function: __init__(self, pos, type)
+    Function: update(self)
+
+Class: GravityActor
+    Variable: MAX_FALL_SPEED
+    Function: __init__(self, pos)
+    Function: update(self, detect)
+
+Class: Fruit
+    Variable: APPLE
+    Variable: RASPBERRY
+    Variable: LEMON
+    Variable: EXTRA_HEALTH
+    Variable: EXTRA_LIFE
+    Function: __init__(self, pos, trapped_enemy_type)
+        Variable: types
+    Function: update(self)
+        Variable: anim_frame
+
+Class: Player
+    Function: __init__(self)
+    Function: reset(self)
+    Function: hit_test(self, other)
+    Function: update(self)
+        Variable: dx
+        Variable: dx
+        Variable: dx
+        Variable: x
+        Variable: y
+        Variable: dir_index
+
+Class: Robot
+    Variable: TYPE_NORMAL
+    Variable: TYPE_AGGRESSIVE
+    Function: __init__(self, pos, type)
+    Function: update(self)
+        Variable: directions
+        Variable: fire_probability
+        Variable: direction_idx
+        Variable: image
+
+Class: Game
+    Function: __init__(self, player)
+    Function: fire_probability(self)
+    Function: max_enemies(self)
+    Function: next_level(self)
+        Variable: num_enemies
+        Variable: num_strong_enemies
+        Variable: num_weak_enemies
+    Function: get_robot_spawn_x(self)
+        Variable: r
+        Variable: grid_x
+    Function: update(self)
+        Variable: robot_type
+        Variable: pos
+    Function: draw(self)
+        Variable: block_sprite
+        Variable: row
+        Variable: x
+        Variable: all_objs
+    Function: play_sound(self, name, count)
+        Variable: sound
+
+Variable: CHAR_WIDTH
+
+Function: char_width(char)
+    Variable: index
+
+Function: draw_text(text, y, x)
+    Variable: x
+
+Variable: IMAGE_WIDTH
+
+Function: draw_status()
+    Variable: number_width
+    Variable: s
+    Variable: lives_health
+    Variable: x
+
+Variable: space_down
+
+Function: space_pressed()
+    Variable: space_down
+    Variable: space_down
+
+Class: State
+    Variable: MENU
+    Variable: PLAY
+    Variable: GAME_OVER
+
+Function: update()
+    Variable: state
+    Variable: game
+    Variable: state
+    Variable: state
+    Variable: game
+
+Function: draw()
+    Variable: anim_frame
+
+Variable: state
+Variable: game

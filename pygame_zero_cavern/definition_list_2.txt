@@ -1,0 +1,140 @@
+Var: pgzero_version
+Var: WIDTH
+Var: HEIGHT
+Var: TITLE
+Var: NUM_ROWS
+Var: NUM_COLUMNS
+Var: LEVEL_X_OFFSET
+Var: GRID_BLOCK_SIZE
+Var: ANCHOR_CENTRE
+Var: ANCHOR_CENTRE_BOTTOM
+Var: LEVELS
+
+Func: block(x, y)
+    Var: grid_x
+    Var: grid_y
+    Var: row
+
+Func: sign(x)
+
+Class: CollideActor
+    Func: __init__(self, pos, anchor)
+    Func: move(self, dx, dy, speed)
+
+Class: Orb
+    Var: MAX_TIMER
+    Func: __init__(self, pos, dir_x)
+    Func: hit_test(self, bolt)
+        Var: collided
+    Func: update(self)
+
+Class: Bolt
+    Var: SPEED
+    Func: __init__(self, pos, dir_x)
+    Func: update(self)
+        Var: direction_idx
+        Var: anim_frame
+
+Class: Pop
+    Func: __init__(self, pos, type)
+    Func: update(self)
+
+Class: GravityActor
+    Var: MAX_FALL_SPEED
+    Func: __init__(self, pos)
+    Func: update(self, detect)
+
+Class: Fruit
+    Var: APPLE
+    Var: RASPBERRY
+    Var: LEMON
+    Var: EXTRA_HEALTH
+    Var: EXTRA_LIFE
+    Func: __init__(self, pos, trapped_enemy_type)
+        Var: types
+    Func: update(self)
+        Var: anim_frame
+
+Class: Player
+    Func: __init__(self)
+    Func: reset(self)
+    Func: hit_test(self, other)
+    Func: update(self)
+        Var: dx
+        Var: dx
+        Var: dx
+        Var: x
+        Var: y
+        Var: dir_index
+
+Class: Robot
+    Var: TYPE_NORMAL
+    Var: TYPE_AGGRESSIVE
+    Func: __init__(self, pos, type)
+    Func: update(self)
+        Var: directions
+        Var: fire_probability
+        Var: direction_idx
+        Var: image
+
+Class: Game
+    Func: __init__(self, player)
+    Func: fire_probability(self)
+    Func: max_enemies(self)
+    Func: next_level(self)
+        Var: num_enemies
+        Var: num_strong_enemies
+        Var: num_weak_enemies
+    Func: get_robot_spawn_x(self)
+        Var: r
+        Var: grid_x
+    Func: update(self)
+        Var: robot_type
+        Var: pos
+    Func: draw(self)
+        Var: block_sprite
+        Var: row
+        Var: x
+        Var: all_objs
+    Func: play_sound(self, name, count)
+        Var: sound
+
+Var: CHAR_WIDTH
+
+Func: char_width(char)
+    Var: index
+
+Func: draw_text(text, y, x)
+    Var: x
+
+Var: IMAGE_WIDTH
+
+Func: draw_status()
+    Var: number_width
+    Var: s
+    Var: lives_health
+    Var: x
+
+Var: space_down
+
+Func: space_pressed()
+    Var: space_down
+    Var: space_down
+
+Class: State
+    Var: MENU
+    Var: PLAY
+    Var: GAME_OVER
+
+Func: update()
+    Var: state
+    Var: game
+    Var: state
+    Var: state
+    Var: game
+
+Func: draw()
+    Var: anim_frame
+
+Var: state
+Var: game
